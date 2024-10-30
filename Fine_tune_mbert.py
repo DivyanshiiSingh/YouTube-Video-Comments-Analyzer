@@ -33,7 +33,7 @@ model = BertForSequenceClassification.from_pretrained('bert-base-multilingual-ca
 
 # Set up optimizer and learning rate scheduler
 optimizer = AdamW(model.parameters(), lr=5e-5)
-num_training_steps = len(train_dataloader) * 5  # For 5 epochs can be adjusted as per dataframe size
+num_training_steps = len(train_dataloader) * 5  # For 5 epochs, can be adjusted as per dataframe size
 lr_scheduler = get_scheduler("linear", optimizer=optimizer, num_warmup_steps=0, num_training_steps=num_training_steps)
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
@@ -73,7 +73,7 @@ for batch in test_dataloader:
 accuracy = metric.compute()
 print(f"Test Accuracy: {accuracy['accuracy'] * 100:.2f}%")
 
-save_directory = '/content/drive/My Drive/Colab Notebooks/YouTube Comment Analyzer (YCA)/FineTuned_mBERT'
+save_directory = '/path/where/to/save/Fine_tuned_mBERT'
 model.save_pretrained(save_directory)
 tokenizer.save_pretrained(save_directory)
 print("Model and tokenizer saved successfully.")
