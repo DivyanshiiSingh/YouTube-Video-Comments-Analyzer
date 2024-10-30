@@ -1,17 +1,17 @@
-# deploying model to analyze YT comments
+# deploying model to analyze youtube comments
 
 from transformers import BertTokenizer, BertForSequenceClassification
 import torch
 import os
 from googleapiclient.discovery import build
-from youtube_comment_scraper import scrapeComments
+from Youtube_comment_scraper import scrapeComments
 
 # Load the tokenizer and model from the fine-tuned directory
 model_path = "path/where/model/is/saved"  # Replace with your model directory path
 tokenizer = BertTokenizer.from_pretrained(model_path)
 model = BertForSequenceClassification.from_pretrained(model_path, num_labels=3)
 
-comments = scrapeComments('Your YouTube API key', 'YouTube video ID')
+comments = scrapeComments('Your-YouTube-API-key', 'YouTube-video-ID')
 
 print("Number of comments: ", len(comments))
 
