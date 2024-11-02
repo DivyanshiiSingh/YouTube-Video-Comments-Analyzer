@@ -4,6 +4,7 @@ import torch
 from torch.utils.data import random_split, DataLoader, TensorDataset
 from transformers import BertTokenizer, BertForSequenceClassification, AdamW, get_scheduler
 from evaluate import load
+from Generate_mapped_sentiment_data import create_labelled_dataframe
 
 def fineTune(model_directory, sample_size, epochs, train_size_ratio):
   df = create_labelled_dataframe(sample_size)
