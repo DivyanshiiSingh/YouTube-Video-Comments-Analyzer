@@ -1,6 +1,6 @@
-from  import fineTune
-from  import analyzeComments
-from  import summarizeComments
+from Fine_tune_mbert import fineTune
+from Analyze_youtube_comments import analyzeComments
+from Summarize_youtube_comments import summarizeComments
 
 while True:
   choice = input("Hello! What are you intersted in ?\n1. Fine tune mBERT\n2. Analyze comments\n3. Summarize comments\n4. Exit")
