@@ -40,7 +40,7 @@ def fineTune(model_directory, sample_size, epochs, train_size_ratio):
   model.to(device)
   
   model.train()
-  for epoch in range(5):
+  for epoch in range(epochs):
       print(f"Epoch {epoch + 1} training...")
       for batch in train_dataloader:
           batch = [item.to(device) for item in batch]
